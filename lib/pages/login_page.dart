@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
             //Display message
 
             Text(
-              "Travel reservations made super easy",
+              "Welcome back",
               style: TextStyle(
                   fontSize: 20,
                   fontFamily: "Helvetica",
@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: GestureDetector(
-                  child:Text("Sign in",
+                  child:Text("Sign up",
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 20))
