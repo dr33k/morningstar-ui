@@ -1,4 +1,4 @@
-# morningstar_ui
+# morningstar-ui
 
 A new Flutter project.
 
