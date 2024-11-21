@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:morningstar_ui/components/app_text.dart';
 
 class AppBtn extends StatelessWidget {
   final String text;
@@ -15,14 +16,8 @@ class AppBtn extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
           ),
           child: Center(
-            heightFactor: 2,
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 20,
-                color: Theme.of(context).colorScheme.inversePrimary,
-              )
-            ),
+            heightFactor: 3,
+            child: AppTextIS(text: text),
           ),
         ),
     );

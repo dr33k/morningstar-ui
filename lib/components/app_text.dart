@@ -9,16 +9,32 @@ class AppTextPS extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          fontSize: 15,
+          fontSize: 17,
           fontFamily: "Helvetica",
           color: Theme.of(context).colorScheme.primary),
     );
   }
 }
 
-class AppTextPM extends StatelessWidget {
+class AppTextIS extends StatelessWidget {
   final String text;
-  const AppTextPM({super.key, required this.text});
+  const AppTextIS({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: 17,
+          fontFamily: "Helvetica",
+          color: Theme.of(context).colorScheme.inversePrimary),
+    );
+  }
+}
+
+class AppTitlePS extends StatelessWidget {
+  final String text;
+  const AppTitlePS({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +43,7 @@ class AppTextPM extends StatelessWidget {
       style: TextStyle(
           fontSize: 25,
           fontFamily: "Helvetica",
+          fontWeight: FontWeight.w800,
           color: Theme.of(context).colorScheme.primary),
     );
   }
@@ -41,7 +58,7 @@ class AppTextNS extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          fontSize: 15,
+          fontSize: 17,
           fontFamily: "Helvetica",
       color: Colors.grey.shade900)
     );

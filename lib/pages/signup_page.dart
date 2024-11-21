@@ -34,7 +34,7 @@ class _SignupPageState extends State<SignupPage> {
 
               const SizedBox(height: 80),
 
-              const AppTextPM(text: "MORNINGSTAR"),
+              const AppTitlePS(text: "MORNINGSTAR"),
 
               Icon(
                 Icons.card_membership,
@@ -44,7 +44,7 @@ class _SignupPageState extends State<SignupPage> {
 
               const SizedBox(height: 20),
 
-              const AppTextPS(text: "Travel reservations made super easy"),
+              const AppTextNS(text: "Travel reservations made super easy"),
 
               const SizedBox(height: 20),
 
@@ -116,10 +116,7 @@ class _SignupPageState extends State<SignupPage> {
                     padding: const EdgeInsets.all(10.0),
                     child: GestureDetector(
                       onTap: widget.onTap,
-                        child:Text("Login",
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 15))
+                        child:const AppTextPS(text: "Login")
                     )
                 ),
               ),

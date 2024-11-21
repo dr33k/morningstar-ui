@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(height: 80),
 
-              const AppTextPM(text: "MORNINGSTAR"),
+              const AppTitlePS(text: "MORNINGSTAR"),
 
               Icon(
                 Icons.person_2_sharp,
@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 20),
 
               //Display message
-              const AppTextPS(text: "Welcome Back"),
+              const AppTextNS(text: "Welcome Back"),
 
               const SizedBox(height: 20),
 
@@ -88,10 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(
                           onTap: widget.onTap,
-                          child:Text("Sign up",
-                              style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 15))
+                          child:const AppTextPS(text: "Sign up")
                         )
                     ),
                   ),
