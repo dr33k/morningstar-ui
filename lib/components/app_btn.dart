@@ -3,7 +3,7 @@ import 'package:morningstar_ui/components/app_text.dart';
 
 class AppBtn extends StatelessWidget {
   final String text;
-  final GestureTapCallback callback;
+  final void Function()? callback;
   const AppBtn({super.key, required this.text, required this.callback});
 
   @override

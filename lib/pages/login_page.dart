@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:morningstar_ui/components/app_btn.dart';
 import 'package:morningstar_ui/components/app_text.dart';
-import 'package:morningstar_ui/components/app_textfield.dart';
+import 'package:morningstar_ui/components/app_textformfield.dart';
+import 'package:morningstar_ui/logic/validation/form_validator.dart';
 
 class LoginPage extends StatefulWidget{
   final Function()? onTap;
@@ -16,10 +17,12 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  _LoginPageState();
+  final FormValidator fv = FormValidator();
 
   @override
   Widget build(BuildContext context) {
@@ -28,74 +31,79 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            //logo
-            children: [
-              const SizedBox(height: 80),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              //logo
+              children: [
+                const SizedBox(height: 80),
 
-              const AppTitlePS(text: "MORNINGSTAR"),
+                const AppTitlePS(text: "MORNINGSTAR"),
 
-              Icon(
-                Icons.person_2_sharp,
-                size: 100,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+                Icon(
+                  Icons.person_2_sharp,
+                  size: 100,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              //Display message
-              const AppTextNS(text: "Welcome Back"),
+                //Display message
+                const AppTextNS(text: "Welcome Back"),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              Expanded(child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: AppTextField(
-                        controller: emailController,
-                        label: "Email address",
-                        obscureText: false),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: AppTextField(
-                        controller: passwordController,
-                        label: "Password",
-                        obscureText: true),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: AppBtn(
-                      callback: (){},
-                      text: "Login",
+                Expanded(child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: AppTextFormField(
+                          controller: emailController,
+                          validator: fv.validateEmail,
+                          label: "Email address",
+                          obscureText: false),
                     ),
-                  ),
 
-                  const Center(
-                    child: Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: AppTextNS(text: "Not a User yet ?")
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: AppTextFormField(
+                          controller: passwordController,
+                          validator: fv.validatePassword,
+                          label: "Password",
+                          obscureText: true),
                     ),
-                  ),
 
-                  Center(
-                    child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: GestureDetector(
-                          onTap: widget.onTap,
-                          child:const AppTextPS(text: "Sign up")
-                        )
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: AppBtn(
+                        callback: (){},
+                        text: "Login",
+                      ),
                     ),
-                  ),
-                ],
-              )
-              )
-            ],
+
+                    const Center(
+                      child: Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: AppTextNS(text: "Not a User yet ?")
+                      ),
+                    ),
+
+                    Center(
+                      child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: GestureDetector(
+                            onTap: widget.onTap,
+                            child:const AppTextPS(text: "Sign up")
+                          )
+                      ),
+                    ),
+                  ],
+                )
+                )
+              ],
+            ),
           ),
         ),
       ),
